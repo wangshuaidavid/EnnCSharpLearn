@@ -4,6 +4,7 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Controls;
+using System;
 
 namespace DiagramDesigner
 {
@@ -62,6 +63,13 @@ namespace DiagramDesigner
             {
                 Connector sourceConnector = this.sourceConnector;
                 Connector sinkConnector = this.HitConnector;
+
+                Console.WriteLine("diragram id is {0}", sourceConnector.ParentDesignerItem.ID.ToString());
+                Console.WriteLine("diragram id is {0}", sinkConnector.ParentDesignerItem.ID.ToString());
+
+                Console.WriteLine("orentation is {0}", sourceConnector.Orientation);
+                Console.WriteLine("orentation is {0}", sinkConnector.Orientation);
+
                 Connection newConnection = new Connection(sourceConnector, sinkConnector);
 
                 Canvas.SetZIndex(newConnection, designerCanvas.Children.Count);
