@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
@@ -9,8 +10,49 @@ using System.Windows.Media;
 
 namespace DiagramDesigner
 {
+
+    class TextAdorner : Adorner
+    {
+        public TextAdorner(UIElement adornedElement) : base(adornedElement) { }
+
+        protected override void OnRender(DrawingContext drawingContext)
+        {
+            // ADD LABEL ...
+            FormattedText ft = new FormattedText("test",
+                   new CultureInfo("en-us"),
+                    FlowDirection.LeftToRight,
+                    new Typeface(new FontFamily(), FontStyles.Normal,
+                        FontWeights.Normal, new FontStretch()),
+                    12, SystemColors.GrayTextBrush);
+
+            Connection c = this.AdornedElement as Connection ;
+
+
+
+
+
+            Point displayPoint = c.AnchorPositionSource;
+            displayPoint.Offset(10, 10);
+
+
+
+
+
+
+
+            drawingContext.DrawText(ft, displayPoint);
+
+            // Add ARROW ...
+            // var myPathGeometry = new PathGeometry { Figures = myPathFigureCollection };            
+            // drawingContext.DrawGeometry(Brushes.Black, null, myPathGeometry);
+        }
+    }
+
     public class Connection : Control, ISelectable, INotifyPropertyChanged
     {
+        private TextAdorner ta;
+
+
         private Adorner connectionAdorner;
 
         #region Properties
@@ -241,6 +283,33 @@ namespace DiagramDesigner
             this.Source = source;
             this.Sink = sink;
             base.Unloaded += new RoutedEventHandler(Connection_Unloaded);
+
+            this.Background = new SolidColorBrush(Colors.Red);
+
+        }
+
+
+        protected override void OnRender(DrawingContext drawingContext)
+        {
+            base.OnRender(drawingContext);
+            this.showTextAdorner();
+            this.ta.InvalidateVisual();
+        }
+
+
+        void showTextAdorner()
+        {
+            if (this.ta == null)
+            {
+                DesignerCanvas designer = VisualTreeHelper.GetParent(this) as DesignerCanvas;
+
+                AdornerLayer adornerLayer = AdornerLayer.GetAdornerLayer(this);
+                if (adornerLayer != null)
+                {
+                    this.ta = new TextAdorner(this);
+                    adornerLayer.Add(this.ta);
+                }
+            }
         }
 
 
@@ -296,6 +365,11 @@ namespace DiagramDesigner
                     geometry.Figures.Add(figure);
 
                     this.PathGeometry = geometry;
+                }
+
+                if (this.ta != null) 
+                {
+                    this.ta.InvalidateVisual();
                 }
             }
         }
@@ -368,6 +442,17 @@ namespace DiagramDesigner
                     this.connectionAdorner = null;
                 }
             }
+
+            if (this.ta != null)
+            {
+                AdornerLayer adornerLayer = AdornerLayer.GetAdornerLayer(this);
+                if (adornerLayer != null)
+                {
+                    adornerLayer.Remove(this.ta);
+                    this.ta = null;
+                }
+            }
+
         }
 
         #region INotifyPropertyChanged Members
@@ -393,4 +478,6 @@ namespace DiagramDesigner
         Arrow,
         Diamond
     }
+
+
 }
