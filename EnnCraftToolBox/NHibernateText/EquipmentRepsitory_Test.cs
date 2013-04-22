@@ -11,7 +11,7 @@ using Domain.Repository;
 
 namespace Domain
 {
-
+    /*
     [TestFixture]
     public class EquipmentRepsitory_Test
     {
@@ -46,5 +46,5 @@ namespace Domain
             IEquipmentRepository repository = new EnnEquipmentRepository();
             repository.Remove(repository.GetById(1));
         }
-    }
+    }*/
 }

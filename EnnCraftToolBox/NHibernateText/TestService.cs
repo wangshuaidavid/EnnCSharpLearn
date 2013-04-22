@@ -35,5 +35,26 @@ namespace Domain
             //equipService.removeConnectionFromEquipments(e2.OutputPort1.Id);
             equipService.RemoveEquipment(equipId1);
         }
+
+
+        [Test]
+        public void InitTest_NEW()
+        {
+            EnnEquipmentRepository er = new EnnEquipmentRepository();
+            IOConnectionRepository cr = new IOConnectionRepository();
+
+            EnnEquipment e1 = er.CreateEquip();
+            EnnEquipment e2 = er.CreateEquip();
+            e2.EquipName = "modified Equip name";
+            er.Update(e2);
+
+           int conID = cr.AddConnection(e1.OutputPort1.Id, e2.InputPort2.Id);
+
+            cr.AddConnection(e1.OutputPort2.Id, e2.InputPort1.Id);
+
+            cr.RemoveConnection(conID);
+            //er.Remove(e1.Id);
+
+        }
     }
 }
