@@ -17,8 +17,8 @@ namespace Domain.Mappings
             Map(x => x.PortName);
             Map(x => x.PortValue);
 
-            References<IOConnection>(x => x.RelevantIOConnection).Unique().Cascade.All();
-            References<EnnEquipment>(x => x.BelongsToEquipment).Unique();
+            References<IOConnection>(x => x.RelevantIOConnection).Cascade.All();
+            References<EnnEquipment>(x => x.BelongsToEquipment);
         }
     }
 }

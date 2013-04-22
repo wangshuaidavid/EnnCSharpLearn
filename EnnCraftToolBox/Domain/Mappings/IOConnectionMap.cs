@@ -13,8 +13,8 @@ namespace Domain.Mappings
         public IOConnectionMap()
         {
             Id(x => x.Id);
-            References<IOPort>(x => x.InputPort).Unique();
-            References<IOPort>(x => x.OutputPort).Unique();
+            References<IOPort>(x => x.SourcePort).Unique();
+            References<IOPort>(x => x.SinkPort).Unique();
         }
     }
 }

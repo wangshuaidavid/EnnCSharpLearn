@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{26809492-0450-43AE-958C-A77A9ECC35E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NHibernateTest", "NHibernateText\NHibernateTest.csproj", "{FBC8DE8A-324B-440A-96D9-4819ABD40DD0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "xNHibernateTest", "NHibernateText\xNHibernateTest.csproj", "{FBC8DE8A-324B-440A-96D9-4819ABD40DD0}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Services", "Servers\Services.csproj", "{660BF1BC-6F3C-4D34-AE10-9138BD06D163}"
 EndProject

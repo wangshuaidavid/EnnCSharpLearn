@@ -10,9 +10,9 @@ namespace Domain.Entities
     {
         public virtual int Id { get; set; }
 
-        public virtual IOPort InputPort { get; set; }
+        public virtual IOPort SourcePort { get; set; }
 
-        public virtual IOPort OutputPort { get; set; }
+        public virtual IOPort SinkPort { get; set; }
 
     }
 }
