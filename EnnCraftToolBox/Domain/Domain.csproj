@@ -59,6 +59,7 @@
     <Compile Include="Entities\EquipmentsGrid.cs" />
     <Compile Include="Entities\IOConnection.cs" />
     <Compile Include="Entities\IOPort.cs" />
+    <Compile Include="GlobleConst.cs" />
     <Compile Include="Mappings\EnnEquipmentMap.cs" />
     <Compile Include="Mappings\EquipmentsGridMap.cs" />
     <Compile Include="Mappings\IOConnectionMap.cs" />
@@ -68,7 +69,9 @@
     <Compile Include="Repository\DataAccess.cs" />
     <Compile Include="Repository\EnnEquipmentRepository.cs" />
     <Compile Include="Repository\GeneralDataAccess.cs" />
+    <Compile Include="Repository\IIOConnectionRepository.cs" />
     <Compile Include="Repository\IEquipmentRepository.cs" />
+    <Compile Include="Repository\IOConnectionRepository.cs" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

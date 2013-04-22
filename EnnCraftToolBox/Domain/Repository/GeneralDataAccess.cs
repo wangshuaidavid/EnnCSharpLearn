@@ -54,6 +54,7 @@ namespace Domain.Repository
             using (ISession session = this.openSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
+
                 session.Delete(obj);
                 transaction.Commit();
             }

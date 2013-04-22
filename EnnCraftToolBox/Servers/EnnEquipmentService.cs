@@ -66,17 +66,25 @@ namespace Servers
             IOPort sinkPort = this._dataAccess.GetById<IOPort>(sinkPortId);
 
             IOConnection conn = new IOConnection { SourcePort = sourcePort, SinkPort = sinkPort };
-            sourcePort.RelevantIOConnection = conn;
-            sinkPort.RelevantIOConnection = conn;
+            //sourcePort.RelevantIOConnection = conn;
+            //sinkPort.RelevantIOConnection = conn;
 
-            this._dataAccess.Update<IOPort>(sourcePort);
-            this._dataAccess.Update<IOPort>(sinkPort);
+            //this._dataAccess.Update<IOPort>(sourcePort);
+            //this._dataAccess.Update<IOPort>(sinkPort);
+            this._dataAccess.Add<IOConnection>(conn);
         }
 
         public void removeConnectionFromEquipments(int sourcePortId) {
             IOPort sourcePort = this._dataAccess.GetById<IOPort>(sourcePortId);
             IOConnection conn = sourcePort.RelevantIOConnection;
-            this._dataAccess.Remove<IOConnection>(conn);
+            //IOPort sinkPort = this._dataAccess.GetById<IOPort>(conn.SinkPort.Id);
+
+
+
+           // sourcePort.RelevantIOConnection = null;
+           // sinkPort.RelevantIOConnection = null;
+
+            this._dataAccess.Remove<IOPort>(sourcePort);
         }
     }
 }

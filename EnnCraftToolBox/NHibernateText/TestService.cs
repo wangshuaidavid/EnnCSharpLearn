@@ -32,8 +32,8 @@ namespace Domain
             //Assert.AreSame(e2.OutputPort1.RelevantIOConnection, e1.InputPort2.RelevantIOConnection);
             //Assert.IsNull(e2.OutputPort2.RelevantIOConnection);
 
-
-            
+            //equipService.removeConnectionFromEquipments(e2.OutputPort1.Id);
+            equipService.RemoveEquipment(equipId1);
         }
     }
 }
