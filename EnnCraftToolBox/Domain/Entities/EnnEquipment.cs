@@ -6,12 +6,9 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class EnnEquipment
+    public class EnnEquipment : Equipment
     {
-        public virtual int Id { get; set; }
-        public virtual string EquipName { get; set; }
-        public virtual string EquipDescription { get; set; }
-
+        
         public virtual double ConstantK { get; set; }
 
         public virtual IOPort InputPort1 { get; set; }
