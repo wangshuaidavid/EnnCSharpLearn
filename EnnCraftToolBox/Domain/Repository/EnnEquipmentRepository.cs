@@ -109,7 +109,7 @@ namespace Domain.Repository
 
         public void Dispose()
         {
-            Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            Console.WriteLine("---------- Session will close ----------");
             session.Flush();
             session.Close();
             session.Dispose();
