@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public interface IEquipmentRepository
+    public interface IEquipmentRepository : IDisposable
     {
         EnnEquipment CreateEquip();
         void Update(EnnEquipment equip);

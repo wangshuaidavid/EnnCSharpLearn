@@ -11,17 +11,20 @@ namespace Domain.Repository
     public class EnnEquipmentRepository : IEquipmentRepository
     {
 
-        private ISession openSession()
+        private ISession session;
+
+        public ISession Session
         {
-            return FluentSessionFactory.GetCurrentFactory().OpenSession();
+            get { return session; }
+            set { session = value; }
         }
+        
 
 
         public EnnEquipment CreateEquip()
         {
 
             EnnEquipment returnEquipt = null;
-            using (ISession session = this.openSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 EnnEquipment equip = new EnnEquipment { EquipName = "DemoEquip", EquipDescription = "description xxx" };
@@ -61,7 +64,6 @@ namespace Domain.Repository
 
         public void Update(EnnEquipment equip)
         {
-            using (ISession session = this.openSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 session.Update(equip);
@@ -84,7 +86,6 @@ namespace Domain.Repository
 
         public void Remove(int equipId)
         {
-            using (ISession session = this.openSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 EnnEquipment equip = session.Get<EnnEquipment>(equipId);
@@ -102,11 +103,16 @@ namespace Domain.Repository
         public EnnEquipment GetById(int equipId)
         {
             EnnEquipment equipFromDb = null;
-            using (ISession session = this.openSession())
-            {
-                equipFromDb = session.Get<EnnEquipment>(equipId);
-            }
+            equipFromDb = session.Get<EnnEquipment>(equipId);
             return equipFromDb;
+        }
+
+        public void Dispose()
+        {
+            Console.WriteLine("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx");
+            session.Flush();
+            session.Close();
+            session.Dispose();
         }
     }
 }
