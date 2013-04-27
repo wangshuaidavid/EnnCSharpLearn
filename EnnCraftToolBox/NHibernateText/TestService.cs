@@ -13,6 +13,7 @@ namespace Domain
     [TestFixture]
     class TestService
     {
+        /*
 
         [Test]
         public void InitTest()
@@ -35,7 +36,7 @@ namespace Domain
             //equipService.removeConnectionFromEquipments(e2.OutputPort1.Id);
             equipService.RemoveEquipment(equipId1);
         }
-
+        */
 
         [Test]
         public void InitTest_NEW()

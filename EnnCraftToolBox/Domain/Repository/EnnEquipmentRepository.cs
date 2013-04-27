@@ -8,17 +8,8 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public class EnnEquipmentRepository : IEquipmentRepository
+    public class EnnEquipmentRepository : AbstractEquipmentRepository
     {
-
-        private ISession session;
-
-        public ISession Session
-        {
-            get { return session; }
-            set { session = value; }
-        }
-        
 
 
         public EnnEquipment CreateEquip()
@@ -77,7 +68,7 @@ namespace Domain.Repository
             IOConnection conn = thePort.RelevantIOConnection;
             if (conn == null)
             {
-                return; 
+                return;
             }
             conn.SourcePort.RelevantIOConnection = null;
             conn.SinkPort.RelevantIOConnection = null;
@@ -107,12 +98,5 @@ namespace Domain.Repository
             return equipFromDb;
         }
 
-        public void Dispose()
-        {
-            Console.WriteLine("---------- Session will close ----------");
-            session.Flush();
-            session.Close();
-            session.Dispose();
-        }
     }
 }
