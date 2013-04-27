@@ -12,7 +12,7 @@ namespace Domain.Repository
     {
 
 
-        public EnnEquipment CreateEquip()
+        public Equipment CreateEquip()
         {
             EnnEquipment returnEquipt = null;
             using (ITransaction transaction = session.BeginTransaction())
@@ -52,7 +52,7 @@ namespace Domain.Repository
             return returnEquipt;
         }
 
-        public void Update(EnnEquipment equip)
+        public void Update(Equipment equip)
         {
             using (ITransaction transaction = session.BeginTransaction())
             {
@@ -90,7 +90,7 @@ namespace Domain.Repository
         }
 
 
-        public EnnEquipment GetById(int equipId)
+        public Equipment GetById(int equipId)
         {
             EnnEquipment equipFromDb = null;
             equipFromDb = session.Get<EnnEquipment>(equipId);

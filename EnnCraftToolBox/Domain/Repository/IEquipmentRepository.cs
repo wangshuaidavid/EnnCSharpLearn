@@ -9,9 +9,9 @@ namespace Domain.Repository
 {
     public interface IEquipmentRepository : IDisposable
     {
-        EnnEquipment CreateEquip();
-        void Update(EnnEquipment equip);
+        Equipment CreateEquip();
+        void Update(Equipment equip);
         void Remove(int equipId);
-        EnnEquipment GetById(int equipId);
+        Equipment GetById(int equipId);
     }
 }

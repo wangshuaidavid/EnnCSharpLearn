@@ -55,8 +55,8 @@ namespace Domain
             er.Session = session;
             cr.Session = session;
             
-            EnnEquipment e1 = er.CreateEquip();
-            EnnEquipment e2 = er.CreateEquip();
+            EnnEquipment e1 = er.CreateEquip() as EnnEquipment;
+            EnnEquipment e2 = er.CreateEquip() as EnnEquipment;
             e2.EquipName = "modified Equip name";
             er.Update(e2);
 

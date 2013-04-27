@@ -10,12 +10,16 @@ namespace Domain.Repository
     class HeatPumpRepository : AbstractRepository, IEquipmentRepository
     {
 
-        public EnnEquipment CreateEquip()
+        public Equipment CreateEquip()
         {
-            throw new NotImplementedException();
+            HeatPump returnHeatPump = null;
+
+
+
+            return returnHeatPump;
         }
 
-        public void Update(EnnEquipment equip)
+        public void Update(Equipment equip)
         {
             throw new NotImplementedException();
         }
@@ -25,7 +29,7 @@ namespace Domain.Repository
             throw new NotImplementedException();
         }
 
-        public EnnEquipment GetById(int equipId)
+        public Equipment GetById(int equipId)
         {
             throw new NotImplementedException();
         }
