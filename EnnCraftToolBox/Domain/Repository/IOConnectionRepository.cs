@@ -10,18 +10,12 @@ using System.Threading.Tasks;
 namespace Domain.Repository
 {
 
-    public class IOConnectionRepository : IIOConnectionRepository
+    public class IOConnectionRepository : AbstractRepository, IIOConnectionRepository
     {
-
-        public ISession openSession()
-        {
-            return FluentSessionFactory.GetCurrentFactory().OpenSession();
-        }
 
         public int AddConnection(int sourcePortId, int SinkPortId)
         {
             int returnId = GlobleConst.InvalidId;
-            using (ISession session = this.openSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 IOPort sourcePort = session.Get<IOPort>(sourcePortId);
@@ -39,7 +33,6 @@ namespace Domain.Repository
 
         public void RemoveConnection(int connectionId)
         {
-            using (ISession session = this.openSession())
             using (ITransaction transaction = session.BeginTransaction())
             {
                 IOConnection conn = session.Get<IOConnection>(connectionId);

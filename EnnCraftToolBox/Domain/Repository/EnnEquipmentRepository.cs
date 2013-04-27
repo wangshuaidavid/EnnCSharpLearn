@@ -8,13 +8,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public class EnnEquipmentRepository : AbstractEquipmentRepository
+    public class EnnEquipmentRepository : AbstractRepository, IEquipmentRepository
     {
 
 
         public EnnEquipment CreateEquip()
         {
-
             EnnEquipment returnEquipt = null;
             using (ITransaction transaction = session.BeginTransaction())
             {

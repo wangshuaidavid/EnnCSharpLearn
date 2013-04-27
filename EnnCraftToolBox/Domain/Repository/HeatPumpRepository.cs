@@ -7,26 +7,25 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    class HeatPumpRepository : AbstractEquipmentRepository
+    class HeatPumpRepository : AbstractRepository, IEquipmentRepository
     {
 
-
-        public override EnnEquipment CreateEquip()
+        public EnnEquipment CreateEquip()
         {
             throw new NotImplementedException();
         }
 
-        public override void Update(Entities.EnnEquipment equip)
+        public void Update(EnnEquipment equip)
         {
             throw new NotImplementedException();
         }
 
-        public override void Remove(int equipId)
+        public void Remove(int equipId)
         {
             throw new NotImplementedException();
         }
 
-        public override EnnEquipment GetById(int equipId)
+        public EnnEquipment GetById(int equipId)
         {
             throw new NotImplementedException();
         }

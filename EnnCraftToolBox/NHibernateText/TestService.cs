@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Domain.Repository;
 using Domain.Entities;
+using NHibernate;
 
 namespace Domain
 {
@@ -38,12 +39,22 @@ namespace Domain
         }
         */
 
+        [SetUp]
+        public void setUp() 
+        {
+            
+        }
+
         [Test]
         public void InitTest_NEW()
         {
             EnnEquipmentRepository er = new EnnEquipmentRepository();
             IOConnectionRepository cr = new IOConnectionRepository();
 
+            ISession session = FluentSessionFactory.GetCurrentFactory().OpenSession();
+            er.Session = session;
+            cr.Session = session;
+            
             EnnEquipment e1 = er.CreateEquip();
             EnnEquipment e2 = er.CreateEquip();
             e2.EquipName = "modified Equip name";

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    public abstract class AbstractEquipmentRepository : IEquipmentRepository
+    public abstract class AbstractRepository : IDisposable
     {
 
         protected ISession session;
@@ -26,14 +26,6 @@ namespace Domain.Repository
             session.Close();
             session.Dispose();
         }
-
-        public abstract EnnEquipment CreateEquip();
-
-        public abstract void Update(Entities.EnnEquipment equip);
-
-        public abstract void Remove(int equipId);
-
-        public abstract EnnEquipment GetById(int equipId);
 
     }
 }
