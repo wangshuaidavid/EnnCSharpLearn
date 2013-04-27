@@ -57,10 +57,6 @@
       <Project>{26809492-0450-43ae-958c-a77a9ecc35e9}</Project>
       <Name>Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Servers\Services.csproj">
-      <Project>{660bf1bc-6f3c-4d34-ae10-9138bd06d163}</Project>
-      <Name>Services</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
