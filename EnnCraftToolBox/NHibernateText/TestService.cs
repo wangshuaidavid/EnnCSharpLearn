@@ -14,7 +14,7 @@ namespace Domain
     [TestFixture]
     class TestService
     {
-        /*
+        
 
         [Test]
         public void InitTest()
@@ -37,7 +37,7 @@ namespace Domain
             //equipService.removeConnectionFromEquipments(e2.OutputPort1.Id);
             equipService.RemoveEquipment(equipId1);
         }
-        */
+        
 
         [SetUp]
         public void setUp() 
@@ -89,6 +89,9 @@ namespace Domain
 
             int conID = cr.AddConnection(e1.CwQIn.Id, e2.CoolingQOut.Id);
 
+            HeatPump h = er.GetById(e2.Id) as HeatPump;
+            Console.WriteLine(h);
+            Console.WriteLine(h.HeatRatio);
             // cr.AddConnection(e1.CwQIn.Id, e2.CoolingQOut.Id);
 
             //cr.RemoveConnection(conID);
