@@ -15,7 +15,7 @@ namespace Domain.Repository
         public Equipment CreateEquip()
         {
             HeatPump returnHeatPump = null;
-
+            /*
             using (ITransaction transaction = session.BeginTransaction())
             {
                 HeatPump equip = new HeatPump { EquipName = "HeatPump", EquipDescription = "description xxx" };
@@ -51,7 +51,7 @@ namespace Domain.Repository
                 transaction.Commit();
                 returnHeatPump = equip;
             }
-
+            */
             return returnHeatPump;
         }
 

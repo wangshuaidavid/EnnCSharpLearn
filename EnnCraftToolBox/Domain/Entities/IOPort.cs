@@ -28,6 +28,6 @@ namespace Domain.Entities
 
         public virtual IOConnection RelevantIOConnection { get; set; }
 
-        public virtual Equipment BelongsToEquipment { get; set; }
+        public virtual EnnEquipment BelongsToEquipment { get; set; }
     }
 }
