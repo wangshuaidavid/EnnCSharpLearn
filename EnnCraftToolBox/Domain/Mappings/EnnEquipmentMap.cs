@@ -8,13 +8,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Mappings
 {
-    class EnnEquipmentMap : ClassMap<EnnEquipment>
+    class EnnEquipmentMap : SubclassMap<EnnEquipment>
     {
         public EnnEquipmentMap()
         {
-            Id(x => x.Id);
-            Map(x => x.EquipName);
-            Map(x => x.EquipDescription);
+
             Map(x => x.ConstantK);
 
             References<IOPort>(x => x.InputPort1).Unique().Cascade.All();

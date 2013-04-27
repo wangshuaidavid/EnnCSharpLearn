@@ -9,11 +9,11 @@ namespace Domain.Entities
     public  class EquipmentsGrid
     {
         public virtual int Id { get; set; }
-        public virtual IList<EnnEquipment> AllEquipments { get; set; }
+        public virtual IList<Equipment> AllEquipments { get; set; }
 
         public EquipmentsGrid()
         {
-            AllEquipments = new List<EnnEquipment>();
+            AllEquipments = new List<Equipment>();
         }
     }
 }

@@ -9,15 +9,11 @@ using System.Threading.Tasks;
 
 namespace Domain.Mappings
 {
-    class HeatPumpMap : ClassMap<HeatPump>
+    class HeatPumpMap : SubclassMap<HeatPump>
     {
 
         public HeatPumpMap()
         {
-            Id(x => x.Id);
-            Map(x => x.EquipName);
-            Map(x => x.EquipDescription);
-
             Map(x => x.DrillNum);
             Map(x => x.DrillHoleDiameter);
             Map(x => x.DrillHoleSpace);

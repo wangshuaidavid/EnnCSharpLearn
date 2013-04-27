@@ -63,6 +63,7 @@
     <Compile Include="Entities\IOPort.cs" />
     <Compile Include="GlobleConst.cs" />
     <Compile Include="Mappings\EnnEquipmentMap.cs" />
+    <Compile Include="Mappings\EquipmentMap.cs" />
     <Compile Include="Mappings\EquipmentsGridMap.cs" />
     <Compile Include="Mappings\HeatPumpMap.cs" />
     <Compile Include="Mappings\IOConnectionMap.cs" />

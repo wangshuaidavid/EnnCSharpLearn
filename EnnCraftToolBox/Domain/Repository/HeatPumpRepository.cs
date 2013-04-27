@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Repository
 {
-    class HeatPumpRepository : AbstractRepository, IEquipmentRepository
+    public class HeatPumpRepository : AbstractRepository, IEquipmentRepository
     {
 
         public Equipment CreateEquip()
         {
             HeatPump returnHeatPump = null;
-            /*
+            
             using (ITransaction transaction = session.BeginTransaction())
             {
                 HeatPump equip = new HeatPump { EquipName = "HeatPump", EquipDescription = "description xxx" };
@@ -51,7 +51,7 @@ namespace Domain.Repository
                 transaction.Commit();
                 returnHeatPump = equip;
             }
-            */
+            
             return returnHeatPump;
         }
 
@@ -80,12 +80,12 @@ namespace Domain.Repository
         {
             using (ITransaction transaction = session.BeginTransaction())
             {
-                EnnEquipment equip = session.Get<EnnEquipment>(equipId);
+                HeatPump equip = session.Get<HeatPump>(equipId);
 
-                this.removePortRelevantConnectWithGivenSession(equip.InputPort1, session);
-                this.removePortRelevantConnectWithGivenSession(equip.InputPort2, session);
-                this.removePortRelevantConnectWithGivenSession(equip.OutputPort1, session);
-                this.removePortRelevantConnectWithGivenSession(equip.OutputPort2, session);
+                this.removePortRelevantConnectWithGivenSession(equip.CwQIn, session);
+                this.removePortRelevantConnectWithGivenSession(equip.EleQIn, session);
+                this.removePortRelevantConnectWithGivenSession(equip.CoolingQOut, session);
+                this.removePortRelevantConnectWithGivenSession(equip.LostQOut, session);
                 session.Delete(equip);
                 transaction.Commit();
             }
@@ -93,8 +93,8 @@ namespace Domain.Repository
 
         public Equipment GetById(int equipId)
         {
-            EnnEquipment equipFromDb = null;
-            equipFromDb = session.Get<EnnEquipment>(equipId);
+            HeatPump equipFromDb = null;
+            equipFromDb = session.Get<HeatPump>(equipId);
             return equipFromDb;
         }
     }
