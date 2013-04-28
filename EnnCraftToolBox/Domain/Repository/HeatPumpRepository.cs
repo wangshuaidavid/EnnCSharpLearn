@@ -21,23 +21,23 @@ namespace Domain.Repository
                 HeatPump equip = new HeatPump { EquipName = "HeatPump", EquipDescription = "description xxx" };
 
                 IOPort EleQIn = new IOPort();
-                EleQIn.PortName = "EleQIn";
+                EleQIn.PortName = "电力输入";
                 EleQIn.Type = IOPortType.InputTypePort;
                 EleQIn.BelongsToEquipment = equip;
 
                 IOPort CwQIn = new IOPort();
-                CwQIn.PortName = "CwQIn";
+                CwQIn.PortName = "冷却水输入";
                 CwQIn.Type = IOPortType.InputTypePort;
                 CwQIn.BelongsToEquipment = equip;
 
 
                 IOPort CoolingQOut = new IOPort();
-                CoolingQOut.PortName = "CoolingQOut";
+                CoolingQOut.PortName = "冷冻水输出";
                 CoolingQOut.Type = IOPortType.OutputTypePort;
                 CoolingQOut.BelongsToEquipment = equip;
 
                 IOPort LostQOut = new IOPort();
-                LostQOut.PortName = "LostQOut";
+                LostQOut.PortName = "能量损耗";
                 LostQOut.Type = IOPortType.OutputTypePort;
                 LostQOut.BelongsToEquipment = equip;
 
