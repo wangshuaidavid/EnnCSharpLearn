@@ -36,16 +36,20 @@
     <Reference Include="Iesi.Collections">
       <HintPath>..\SharedLibs\Iesi.Collections.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data">
+    <Reference Include="MySql.Data, Version=6.6.5.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\SharedLibs\MySql.Data.dll</HintPath>
     </Reference>
     <Reference Include="NHibernate">
       <HintPath>..\SharedLibs\NHibernate.dll</HintPath>
     </Reference>
+    <Reference Include="nunit.framework, Version=2.6.2.12296, Culture=neutral, PublicKeyToken=96d09a1eb7f44a77, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\SharedLibs\nunit.framework.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Data.SQLite, Version=1.0.85.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
+    <Reference Include="System.Data.SQLite">
       <HintPath>..\SharedLibs\System.Data.SQLite.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
@@ -61,6 +65,7 @@
     <Compile Include="Entities\HeatPump.cs" />
     <Compile Include="Entities\IOConnection.cs" />
     <Compile Include="Entities\IOPort.cs" />
+    <Compile Include="Entities\IOPortValueItem.cs" />
     <Compile Include="GlobleConst.cs" />
     <Compile Include="Mappings\EnnEquipmentMap.cs" />
     <Compile Include="Mappings\EquipmentMap.cs" />
@@ -68,6 +73,7 @@
     <Compile Include="Mappings\HeatPumpMap.cs" />
     <Compile Include="Mappings\IOConnectionMap.cs" />
     <Compile Include="Mappings\IOPortMap.cs" />
+    <Compile Include="Mappings\IOPortValueItemMap.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="FluentSessionFactory.cs" />
     <Compile Include="Repository\AbstractRepository.cs" />

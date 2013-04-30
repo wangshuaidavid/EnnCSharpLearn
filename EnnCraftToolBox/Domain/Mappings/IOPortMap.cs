@@ -15,10 +15,10 @@ namespace Domain.Mappings
             Id(x => x.Id);
             Map(x => x.Type).CustomType<IOPortType>();
             Map(x => x.PortName);
-            Map(x => x.PortValue);
 
             References<IOConnection>(x => x.RelevantIOConnection).Cascade.All();
             References<Equipment>(x => x.BelongsToEquipment);
+            HasMany(x => x.PortValueItems);
         }
     }
 }

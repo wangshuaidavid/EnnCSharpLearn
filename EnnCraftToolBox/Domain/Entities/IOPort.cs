@@ -24,10 +24,10 @@ namespace Domain.Entities
 
         public virtual string PortName { get; set; }
 
-        public virtual double PortValue { get; set; }
-
         public virtual IOConnection RelevantIOConnection { get; set; }
 
         public virtual Equipment BelongsToEquipment { get; set; }
+
+        public virtual IList<IOPortValueItem> PortValueItems { get; set; }
     }
 }
