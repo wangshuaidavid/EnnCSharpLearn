@@ -29,5 +29,16 @@ namespace Domain.Entities
         public virtual Equipment BelongsToEquipment { get; set; }
 
         public virtual IList<IOPortValueItem> PortValueItems { get; set; }
+
+
+        public IOPort()
+        {
+            PortValueItems = new List<IOPortValueItem>();
+        }
+
+        public virtual void AddPortValueItem(IOPortValueItem thePortValueItem)
+        {
+            PortValueItems.Add(thePortValueItem);
+        }
     }
 }

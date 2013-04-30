@@ -18,7 +18,7 @@ namespace Domain.Mappings
 
             References<IOConnection>(x => x.RelevantIOConnection).Cascade.All();
             References<Equipment>(x => x.BelongsToEquipment);
-            HasMany(x => x.PortValueItems);
+            HasMany<IOPortValueItem>(x => x.PortValueItems).Cascade.All();
         }
     }
 }
